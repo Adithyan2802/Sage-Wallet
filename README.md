@@ -15,8 +15,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/mendsalbert/ai-finance-trackingt.git
-cd ai-finance-tracking
+git clone https://github.com/Adithyan2802/Sage-wallet.git
+cd Sage-wallet
 ```
 
 **Installation**
