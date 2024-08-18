@@ -9,7 +9,6 @@ import {
     CircleDollarSign,
 } from 'lucide-react';
 
-import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -70,13 +69,6 @@ function SideNav() {
                 </h2>
               </Link>
             ))}
-          </div>
-          <div
-            className="fixed bottom-10 p-5 flex gap-2
-                items-center"
-          >
-            <UserButton />
-            Profile
           </div>
         </div>
       );
