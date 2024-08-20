@@ -1,7 +1,7 @@
 "use client";
 
-import React, {useState, useEffect} from "react"
-import { UserButton, useUser } from "@clerk/nextjs"
+import React, { useState, useEffect } from "react";
+import { UserButton, useUser } from "@clerk/nextjs";
 import CardInfo from "./_components/CardInfo";
 import { db } from "../../../utils/dbConfig";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
@@ -10,33 +10,33 @@ import BarChartDashboard from "./_components/BarChartDashboard";
 import BudgetItem from "./budgets/_components/BudgetItem";
 import ExpenseListTable from "./expenses/_components/ExpenseListTable";
 
-function Dashboard(){
-    const { user } = useUser();
-    const[budgetList,setBudgetList] = useState([])
-    const [incomeList,setIncomeList] = useState([])
-    const [expensesList,setExpensesList] = useState([])
+function Dashboard() {
+  const { user } = useUser();
+  const [budgetList, setBudgetList] = useState([]);
+  const [incomeList, setIncomeList] = useState([]);
+  const [expensesList, setExpensesList] = useState([]);
 
-    useEffect(() =>{
-        user && getBudgetList()
-    },[user])
+  useEffect(() => {
+    user && getBudgetList();
+  }, [user]);
 
-    const getBudgetList = async() => {
-        const result = await db
-        .select({
-                ...getTableColumns(Budgets),
-                totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
-                totalitem: sql`count(${Expenses.id})`.mapWith(Number),
-            })
-            .from(Budgets)
-            .leftJoin(Expenses, eq(Budgets.id,Expenses.budgetId))
-            .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
-            .groupBy(Budgets.id)
-             .orderBy(desc(Budgets.id));
-        setBudgetList(result);
-        getAllExpenses();
-        getIncomeList();
-    };
-     /**
+  const getBudgetList = async () => {
+    const result = await db
+      .select({
+        ...getTableColumns(Budgets),
+        totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
+        totalitem: sql`count(${Expenses.id})`.mapWith(Number),
+      })
+      .from(Budgets)
+      .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
+      .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
+      .groupBy(Budgets.id)
+      .orderBy(desc(Budgets.id));
+    setBudgetList(result);
+    getAllExpenses();
+    getIncomeList();
+  };
+  /**
    * Get Income stream list
    */
   const getIncomeList = async () => {
@@ -75,13 +75,14 @@ function Dashboard(){
     setExpensesList(result);
   };
 
-
-    return (
-        <div className="p-8">
-            <h2 className="font-bold text-4xl">Hi, {user?.fullName}</h2>
-            <p className="text-gray-500">Your Money at Work: A Snapshot of Spending and Budgeting.</p>
-            <CardInfo budgetList={budgetList} incomeList={incomeList}/>
-            <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-5">
+  return (
+    <div className="p-8">
+      <h2 className="font-bold text-4xl">Hi, {user?.fullName}</h2>
+      <p className="text-gray-500">
+        Your Money at Work: A Snapshot of Spending and Budgeting.
+      </p>
+      <CardInfo budgetList={budgetList} incomeList={incomeList} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-5">
         <div className="lg:col-span-2">
           <BarChartDashboard budgetList={budgetList} />
 
@@ -104,8 +105,8 @@ function Dashboard(){
               ))}
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default Dashboard;

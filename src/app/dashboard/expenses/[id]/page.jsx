@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import BudgetItem from "../../budgets/_components/BudgetItem";
 import AddExpense from "../_components/AddExpense";
 import ExpenseListTable from "../_components/ExpenseListTable";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../../components/ui/button";
 import { ArrowLeft, Pen, PenBox, Trash } from "lucide-react";
 import {
   AlertDialog,
@@ -19,7 +19,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "../../../../components/ui/alert-dialog";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import EditBudget from "../_components/EditBudget";

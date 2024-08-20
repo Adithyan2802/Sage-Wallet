@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../../../../components/ui/button";
+import { Input } from "../../../../components/ui/input";
 import { db } from "/utils/dbConfig";
 import { Budgets, Expenses } from "/utils/schema";
 import { Loader } from "lucide-react";

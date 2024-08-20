@@ -1,16 +1,45 @@
-import Image from "next/image";
-// import { ContainerScroll } from "../../components/ui/container-scroll-animation";
+"use client";
+import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
+import { SparklesCore } from "../../components/ui/sparkles";
+import { Spotlight } from "../../components/ui/spotlight";
 
 function Hero() {
+  const words = "Take Charge of Your Finances, Effortlessly";
+
   return (
-    <section className="p-8 flex items-center flex-col">
-      <div className="flex flex-col overflow-hidden">
-        <h1 className="text-4xl font-semibold text-black dark:text-white">
-          Manage your Money with AI-Driven Personal <br />
-        <span className="text-4xl md:text-[6rem] text-gray-800 font-bold mt-1 leading-none">
-          Finance Advisor
-        </span>
-        </h1>
+    <section className="p-8 mt-10 flex items-center h-screen w-screen flex-col ">
+      <div className="w-full absolute inset-0 h-screen -z-10">
+        <Spotlight
+          className="-top-40 left-0 w-screen h-screen md:left-60 md:-top-20"
+          fill="#0284c7"
+        />
+
+        <Spotlight
+          className="top-40 left-full w-screen h-screen md:right-60 md:-top-20"
+          fill="#0284c7"
+        />
+
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={50}
+          className="w-full h-full"
+          particleColor="#facc15"
+        />
+      </div>
+
+      <div className="flex flex-col overflow-hidden text-center">
+        <TextGenerateEffect
+          className="text-center text-[40px] md:text-5xl lg:text-6xl"
+          words={words}
+        />
+        <br />
+        <br />
+        <p className="text-center  uppercase tracking-widest mb-4 text-sm md:text-base lg:text-xl">
+          Track, Save, and Grow with AI-Driven Financial Wisdom
+        </p>
       </div>
     </section>
   );
