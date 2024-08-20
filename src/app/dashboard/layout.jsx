@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import SideNav from "./_components/SideNav";
-import DashHeader from "./_components/DashHeader";
 
 import { db } from "../../../utils/dbConfig";
 import { Budgets } from "../../../utils/schema";

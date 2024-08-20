@@ -11,12 +11,12 @@ function Hero() {
       <div className="w-full absolute inset-0 h-screen -z-10">
         <Spotlight
           className="-top-40 left-0 w-screen h-screen md:left-60 md:-top-20"
-          fill="#0284c7"
+          fill="#5b21b6"
         />
 
         <Spotlight
           className="top-40 left-full w-screen h-screen md:right-60 md:-top-20"
-          fill="#0284c7"
+          fill="#5b21b6"
         />
 
         <SparklesCore
