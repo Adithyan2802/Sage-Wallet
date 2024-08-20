@@ -65,10 +65,7 @@ function CardInfo({ budgetList, incomeList }) {
                 <h2>Sage Wallet</h2>
                 <Sparkles
                   className="rounded-full text-white w-10 h-10 p-2 
-                                    bg-gradient-to-r 
-                                    from-pink-500 
-                                    via-red-500
-                                    to-yellow-500
+                                    bg-sky-400 
                                     background-animate"
                 />
               </div>

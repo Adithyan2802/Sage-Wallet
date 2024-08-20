@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 import {
   LayoutGrid,
@@ -47,17 +48,18 @@ function SideNav() {
   }, [path]);
 
   return (
-    <div className="h-screen p-5 border shadow-sm">
-      <div className="flex flex-row items-center">
-        <Image src={"/logo.svg"} alt="logo" width={50} height={25} />
-        <span className="text-black-800 font-bold text-xl">Sage Wallet</span>
-      </div>
+    <div className="h-screen p-5 border-r-2 shadow-sm flex flex-col justify-between">
+      <div>
+        <div className="flex flex-row items-center">
+          <Image src={"/logo.svg"} alt="logo" width={50} height={25} />
+          <span className="text-black-800 font-bold text-xl">Sage Wallet</span>
+        </div>
 
-      <div className="mt-4">
-        {menu.map((menu, index) => (
-          <Link href={menu.path} key={index}>
-            <h2
-              className={`flex gap-2 items-center
+        <div className="mt-4">
+          {menu.map((menu, index) => (
+            <Link href={menu.path} key={index}>
+              <h2
+                className={`flex gap-2 items-center
                         text-gray-500 font-medium
                         rounded-lg
                         mb-2
@@ -65,12 +67,17 @@ function SideNav() {
                         hover:text-primary hover:bg-sky-600/20
                         ${path == menu.path && "text-primary bg-sky-600/20"}
                         `}
-            >
-              <menu.icon />
-              {menu.name}
-            </h2>
-          </Link>
-        ))}
+              >
+                <menu.icon />
+                {menu.name}
+              </h2>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="flex">
+        <UserButton />
+        <p className="p-5">My Profile</p>
       </div>
     </div>
   );

@@ -34,10 +34,7 @@ function DashboardLayout({ children }) {
       <div className="fixed md:w-64 hidden md:block ">
         <SideNav />
       </div>
-      <div className="md:ml-64 ">
-        <DashHeader />
-        {children}
-      </div>
+      <div className="md:ml-64 ">{children}</div>
     </div>
   );
 }
