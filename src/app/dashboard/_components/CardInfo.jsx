@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useState } from "react";
 import formatNumber from "../../../../utils";
 import getFinancialAdvice from "/utils/getFinancialAdvice";
+import { CardSpotlight } from "../../../components/ui/card-spotlight";
 
 function CardInfo({ budgetList, incomeList }) {
   const [totalBudget, setTotalBudget] = useState(0);
@@ -65,7 +66,7 @@ function CardInfo({ budgetList, incomeList }) {
                 <h2>Sage Wallet</h2>
                 <Sparkles
                   className="rounded-full text-white w-10 h-10 p-2 
-                                    bg-sky-400 
+                                    bg-violet-800 
                                     background-animate"
                 />
               </div>
@@ -74,41 +75,51 @@ function CardInfo({ budgetList, incomeList }) {
               </h2>
             </div>
           </div>
+
           <div className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div className="p-7 border rounded-2xl flex items-center justify-between">
-              <div>
-                <h2 className="text-sm">Total Budget</h2>
-                <h2 className="font-bold text-2xl ">
-                  ${formatNumber(totalBudget)}
-                </h2>
+            <CardSpotlight>
+              <div className="p-7  border rounded-2xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm">Total Budget</h2>
+                  <h2 className="font-bold text-2xl ">
+                    ${formatNumber(totalBudget)}
+                  </h2>
+                </div>
+                <PiggyBank className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
               </div>
-              <PiggyBank className="bg-yellow-500 p-3 h-12 w-12 rounded-full" />
-            </div>
-            <div className="p-7 border rounded-2xl flex items-center justify-between">
-              <div>
-                <h2 className="text-sm">Total Spend</h2>
-                <h2 className="font-bold text-2xl ">
-                  ${formatNumber(totalSpend)}
-                </h2>
+            </CardSpotlight>
+
+            <CardSpotlight>
+              <div className="p-7 border rounded-2xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm">Total Spend</h2>
+                  <h2 className="font-bold text-2xl ">
+                    ${formatNumber(totalSpend)}
+                  </h2>
+                </div>
+                <ReceiptText className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
               </div>
-              <ReceiptText className="bg-yellow-500 p-3 h-12 w-12 rounded-full" />
-            </div>
-            <div className="p-7 border rounded-2xl flex items-center justify-between">
-              <div>
-                <h2 className="text-sm">No. Of Budget</h2>
-                <h2 className="font-bold text-2xl ">{budgetList?.length}</h2>
+            </CardSpotlight>
+            <CardSpotlight>
+              <div className="p-7 border rounded-2xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm">No. Of Budget</h2>
+                  <h2 className="font-bold text-2xl ">{budgetList?.length}</h2>
+                </div>
+                <Wallet className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
               </div>
-              <Wallet className="bg-yellow-500 p-3 h-12 w-12 rounded-full" />
-            </div>
-            <div className="p-7 border rounded-2xl flex items-center justify-between">
-              <div>
-                <h2 className="text-sm">Sum of Income Streams</h2>
-                <h2 className="font-bold text-2xl ">
-                  ${formatNumber(totalIncome)}
-                </h2>
+            </CardSpotlight>
+            <CardSpotlight>
+              <div className="p-7 border rounded-2xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm">Sum of Income Streams</h2>
+                  <h2 className="font-bold text-2xl ">
+                    ${formatNumber(totalIncome)}
+                  </h2>
+                </div>
+                <CircleDollarSign className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
               </div>
-              <CircleDollarSign className="bg-yellow-500 p-3 h-12 w-12 rounded-full" />
-            </div>
+            </CardSpotlight>
           </div>
         </div>
       ) : (

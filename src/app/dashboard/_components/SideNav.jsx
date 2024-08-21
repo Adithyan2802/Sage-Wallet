@@ -64,8 +64,8 @@ function SideNav() {
                         rounded-lg
                         mb-2
                         p-4 cursor-pointer
-                        hover:text-primary hover:bg-sky-600/20
-                        ${path == menu.path && "text-primary bg-sky-600/20"}
+                        hover:text-primary hover:bg-violet-500/10
+                        ${path == menu.path && "text-primary bg-violet-800/20"}
                         `}
               >
                 <menu.icon />

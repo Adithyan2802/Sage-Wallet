@@ -17,6 +17,7 @@ import { db } from "/utils/dbConfig";
 import { Budgets } from "/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { toast } from "sonner";
+import { CardSpotlight } from "../../../../components/ui/button";
 
 function CreateBudget({ refreshData }) {
   const [emojiIcon, setEmojiIcon] = useState("😀");
@@ -51,11 +52,11 @@ function CreateBudget({ refreshData }) {
       <Dialog>
         <DialogTrigger asChild>
           <div
-            className="bg-slate-100 p-10 rounded-2xl
+            className="bg-neutral-800/30  p-5 rounded-2xl
             items-center flex flex-col border-2 border-dashed
-            cursor-pointer hover:shadow-md"
+            cursor-pointer h-[170px]"
           >
-            <h2 className="text-3xl">+</h2>
+            <h2 className="text-3xl pt-5">+</h2>
             <h2>Create New Budget</h2>
           </div>
         </DialogTrigger>
