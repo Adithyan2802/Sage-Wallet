@@ -77,7 +77,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-8 pt-0">
       <h2 className="font-bold text-4xl">Hi, {user?.fullName}</h2>
       <p className="text-neutral-400 mt-2">
         Your Money at Work: A Snapshot of Spending and Budgeting.

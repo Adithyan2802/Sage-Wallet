@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import SideNav from "./_components/SideNav";
+import Navbar from "./_components/Navbar";
 
 import { db } from "../../../utils/dbConfig";
 import { Budgets } from "../../../utils/schema";
@@ -30,10 +30,11 @@ function DashboardLayout({ children }) {
 
   return (
     <div>
-      <div className="fixed md:w-64 hidden md:block ">
-        <SideNav />
+      {/* <div className="fixed md:w-64 hidden md:block "> */}
+      <div className="">
+        <Navbar />
       </div>
-      <div className="md:ml-64 ">{children}</div>
+      <div className="">{children}</div>
     </div>
   );
 }
