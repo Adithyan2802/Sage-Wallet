@@ -26,7 +26,7 @@ export const CardSpotlight = ({
   const handleMouseLeave = () => setIsHovering(false);
   return (
     <div
-      className={cn("group/spotlight  rounded-2xl relative ", className)}
+      className={cn("group/spotlight  rounded-xl relative ", className)}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

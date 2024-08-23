@@ -37,14 +37,14 @@ function IncomeList() {
       >
         <CreateIncomes refreshData={() => getIncomelist()} />
         {incomelist?.length > 0
-          ? incomelist.map((budget, index) => (
-              <IncomeItem budget={budget} key={index} />
+          ? incomelist.map((income, index) => (
+              <IncomeItem income={income} key={index} />
             ))
           : [1, 2, 3, 4, 5].map((item, index) => (
               <div
                 key={index}
-                className="w-full bg-slate-200 rounded-lg
-        h-[150px] animate-pulse"
+                className="w-full bg-neutral-400 rounded-lg
+                h-[150px] animate-pulse"
               ></div>
             ))}
       </div>

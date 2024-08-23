@@ -19,15 +19,15 @@ function ExpenseListTable({ expensesList, refreshData }) {
     }
   };
   return (
-    <div className="mt-3">
-      <div className="grid grid-cols-4  text-white rounded-xl bg-violet-800/30 p-4 m-2">
-        <h2 className="font-bold">Name</h2>
-        <h2 className="font-bold">Amount</h2>
-        <h2 className="font-bold">Date</h2>
-        <h2 className="font-bold">Action</h2>
+    <div className="mt-3 p-4 rounded-xl bg-neutral-900">
+      <div className="grid grid-cols-4  text-white rounded-xl bg-violet-800/20 p-3 ">
+        <h2 className="font-bold">NAME</h2>
+        <h2 className="font-bold">AMOUNT</h2>
+        <h2 className="font-bold">DATE</h2>
+        <h2 className="font-bold">ACTION</h2>
       </div>
       {expensesList.map((expenses, index) => (
-        <div className="grid grid-cols-4 rounded-xl bg-white/80 text-black p-1.5 m-2">
+        <div className="grid grid-cols-4 items-center rounded-xl text-white p-2 m-2">
           <h2>{expenses.name}</h2>
           <h2>${expenses.amount}</h2>
           <h2>{expenses.createdAt}</h2>
@@ -35,16 +35,12 @@ function ExpenseListTable({ expensesList, refreshData }) {
             <Button
               onClick={() => deleteExpense(expenses)}
               variant="destructive"
+              className="items-center"
             >
               Delete
+              <Trash className="text-white ml-2" />
             </Button>
           </h2>
-          {/* <h2>
-            <Trash
-              className="text-red-500 cursor-pointer"
-              onClick={() => deleteExpense(expenses)}
-            />
-          </h2> */}
         </div>
       ))}
     </div>

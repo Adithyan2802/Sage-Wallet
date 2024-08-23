@@ -60,13 +60,13 @@ function CardInfo({ budgetList, incomeList }) {
     <div>
       {budgetList.length > 0 ? (
         <div>
-          <div className="p-7 border mt-4 rounded-2xl flex items-center justify-between ">
+          <div className="p-7 mt-4 rounded-xl bg-neutral-900 flex items-center justify-between ">
             <div className="">
               <div className="flex mb-2 flex-row space-x-1 items-center">
-                <h2>Sage Wallet</h2>
+                <h2 className="mr-2">AI INSIGHTS </h2>
                 <Sparkles
-                  className="rounded-full text-white w-10 h-10 p-2 
-                                    bg-violet-800 
+                  className="rounded-full text-white w-10 h-10 p-2
+                                    bg-yellow-500/50 
                                     background-animate"
                 />
               </div>
@@ -78,46 +78,63 @@ function CardInfo({ budgetList, incomeList }) {
 
           <div className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <CardSpotlight>
-              <div className="p-7  border rounded-2xl flex items-center justify-between">
+              <div className="p-7  bg-neutral-900 rounded-xl flex items-center justify-between">
                 <div>
-                  <h2 className="text-sm">Total Budget</h2>
+                  <h2 className="text-sm text-neutral-400 mb-2">
+                    Total Budget
+                  </h2>
                   <h2 className="font-bold text-2xl ">
                     ${formatNumber(totalBudget)}
                   </h2>
                 </div>
-                <PiggyBank className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
+                <PiggyBank className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
               </div>
             </CardSpotlight>
 
             <CardSpotlight>
-              <div className="p-7 border rounded-2xl flex items-center justify-between">
+              <div className="p-7 bg-neutral-900 rounded-xl flex items-center justify-between">
                 <div>
-                  <h2 className="text-sm">Total Spend</h2>
+                  <h2 className="text-sm text-neutral-400 mb-2">Total Spend</h2>
                   <h2 className="font-bold text-2xl ">
                     ${formatNumber(totalSpend)}
                   </h2>
                 </div>
-                <ReceiptText className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
+                <ReceiptText className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
               </div>
             </CardSpotlight>
             <CardSpotlight>
-              <div className="p-7 border rounded-2xl flex items-center justify-between">
+              <div className="p-7 bg-neutral-900 rounded-xl flex items-center justify-between">
                 <div>
-                  <h2 className="text-sm">No. Of Budget</h2>
+                  <h2 className="text-sm text-neutral-400 mb-2">
+                    No. Of Budget
+                  </h2>
                   <h2 className="font-bold text-2xl ">{budgetList?.length}</h2>
                 </div>
-                <Wallet className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
+                <Wallet className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
               </div>
             </CardSpotlight>
             <CardSpotlight>
-              <div className="p-7 border rounded-2xl flex items-center justify-between">
+              <div className="p-7 bg-neutral-900 rounded-xl flex items-center justify-between">
                 <div>
-                  <h2 className="text-sm">Sum of Income Streams</h2>
+                  <h2 className="text-sm text-neutral-400 mb-2">
+                    Sum of Income Streams
+                  </h2>
                   <h2 className="font-bold text-2xl ">
                     ${formatNumber(totalIncome)}
                   </h2>
                 </div>
-                <CircleDollarSign className="bg-violet-800 p-3 h-12 w-12 rounded-full" />
+                <CircleDollarSign className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
+              </div>
+            </CardSpotlight>
+            <CardSpotlight>
+              <div className="p-7 bg-neutral-900 rounded-xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm text-neutral-400 mb-2">Money Saved</h2>
+                  <h2 className="font-bold text-2xl ">
+                    ${formatNumber(totalIncome - totalSpend)}
+                  </h2>
+                </div>
+                <CircleDollarSign className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
               </div>
             </CardSpotlight>
           </div>
@@ -126,7 +143,7 @@ function CardInfo({ budgetList, incomeList }) {
         <div className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[1, 2, 3].map((item, index) => (
             <div
-              className="h-[110px] w-full bg-slate-200 animate-pulse rounded-lg"
+              className="h-[110px] w-full bg-neutral-800 animate-pulse rounded-lg"
               key={index}
             ></div>
           ))}

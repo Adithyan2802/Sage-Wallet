@@ -100,23 +100,25 @@ function ExpensesScreen({ params }) {
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button className="flex gap-2 rounded-full" variant="destructive">
+              <Button className="flex gap-2 rounded" variant="destructive">
                 <Trash className="w-4" /> Delete
               </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your current budget along with expenses and remove your data
-                  from our servers.
+                  This will permanently delete your current budget along with
+                  expenses and remove your data from our servers.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={() => deleteBudget()}>
-                  Continue
+                <AlertDialogAction
+                  className="text-red-600"
+                  onClick={() => deleteBudget()}
+                >
+                  DELETE
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -131,8 +133,8 @@ function ExpensesScreen({ params }) {
           <BudgetItem budget={budgetInfo} />
         ) : (
           <div
-            className="h-[150px] w-full bg-slate-200 
-            rounded-lg animate-pulse"
+            className="h-[150px] w-full bg-neutral-400 
+            rounded animate-pulse"
           ></div>
         )}
         <AddExpense

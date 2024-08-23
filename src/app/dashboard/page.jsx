@@ -9,6 +9,7 @@ import { Budgets, Expenses, Incomes } from "../../../utils/schema";
 import BarChartDashboard from "./_components/BarChartDashboard";
 import BudgetItem from "./budgets/_components/BudgetItem";
 import ExpenseListTable from "./expenses/_components/ExpenseListTable";
+import { SparklesCore } from "../../components/ui/sparkles";
 
 function Dashboard() {
   const { user } = useUser();
@@ -49,7 +50,7 @@ function Dashboard() {
           ),
         })
         .from(Incomes)
-        .groupBy(Incomes.id); // Assuming you want to group by ID or any other relevant column
+        .groupBy(Incomes.id);
 
       setIncomeList(result);
     } catch (error) {
@@ -78,25 +79,30 @@ function Dashboard() {
   return (
     <div className="p-8">
       <h2 className="font-bold text-4xl">Hi, {user?.fullName}</h2>
-      <p className="text-gray-500">
+      <p className="text-neutral-400 mt-2">
         Your Money at Work: A Snapshot of Spending and Budgeting.
       </p>
       <CardInfo budgetList={budgetList} incomeList={incomeList} />
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-5">
         <div className="lg:col-span-2">
           <BarChartDashboard budgetList={budgetList} />
-
-          <ExpenseListTable
-            expensesList={expensesList}
-            refreshData={() => getBudgetList()}
-          />
+          <br />
+          <div>
+            <h2 className="font-bold text-lg">Latest Expenses</h2>
+            <ExpenseListTable
+              expensesList={expensesList.slice(0, 4)}
+              refreshData={() => getBudgetList()}
+            />
+          </div>
         </div>
         <div className="grid gap-5">
           <h2 className="font-bold text-lg">Latest Budgets</h2>
           {budgetList?.length > 0
-            ? budgetList.map((budget, index) => (
-                <BudgetItem budget={budget} key={index} />
-              ))
+            ? budgetList
+                .slice(0, 4)
+                .map((budget, index) => (
+                  <BudgetItem budget={budget} key={index} />
+                ))
             : [1, 2, 3, 4].map((item, index) => (
                 <div
                   className="h-[180xp] w-full
