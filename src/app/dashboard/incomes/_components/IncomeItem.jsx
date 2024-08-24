@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-function IncomeItem({ income }) {
+function IncomeItem({ income, totalIncome }) {
+  const calculateProgressPerc = () => {
+    const perc = (income.amount / totalIncome) * 100;
+    console.log(perc);
+    return perc > 100 ? 100 : perc.toFixed(2);
+  };
   return (
     <Link href={"/dashboard/incomes/" + income?.id}>
       <div
@@ -22,6 +27,25 @@ function IncomeItem({ income }) {
             </div>
           </div>
           <h2 className="font-bold text-primary text-lg"> ${income.amount}</h2>
+        </div>
+        <div className="mt-5">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-xs text-neutral-400">
+              {calculateProgressPerc()}% of Total
+            </h2>
+          </div>
+          <div
+            className="w-full
+            bg-neutral-600 h-2 rounded-full"
+          >
+            <div
+              className="
+            bg-yellow-500 h-2 rounded-full"
+              style={{
+                width: `${calculateProgressPerc()}%`,
+              }}
+            ></div>
+          </div>
         </div>
       </div>
     </Link>

@@ -11,6 +11,7 @@ function AddExpense({ budgetId, user, refreshData }) {
   const [name, setName] = useState();
   const [amount, setAmount] = useState();
   const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState();
   /**
    * Used to Add New Expense
    */
@@ -22,7 +23,7 @@ function AddExpense({ budgetId, user, refreshData }) {
         name: name,
         amount: amount,
         budgetId: budgetId,
-        createdAt: moment().format("DD/MM/yyy"),
+        createdAt: date,
       })
       .returning({ insertedId: Budgets.id });
 
@@ -52,6 +53,14 @@ function AddExpense({ budgetId, user, refreshData }) {
           placeholder="e.g. 500"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+        />
+      </div>
+      <div className="mt-4">
+        <h2 className="text-white font-medium my-1">Date of Expense</h2>
+        <Input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
         />
       </div>
       <Button

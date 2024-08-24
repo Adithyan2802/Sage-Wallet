@@ -66,7 +66,7 @@ function CardInfo({ budgetList, incomeList }) {
                 <h2 className="mr-2">AI INSIGHTS </h2>
                 <Sparkles
                   className="rounded-full text-white w-10 h-10 p-2
-                                    bg-yellow-500/50 
+                                    bg-yellow-500/80 
                                     background-animate"
                 />
               </div>
@@ -135,6 +135,17 @@ function CardInfo({ budgetList, incomeList }) {
                   </h2>
                 </div>
                 <CircleDollarSign className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
+              </div>
+            </CardSpotlight>
+            <CardSpotlight>
+              <div className="p-7 bg-neutral-900 rounded-xl flex items-center justify-between">
+                <div>
+                  <h2 className="text-sm text-neutral-400 mb-2">
+                    No of Incomes
+                  </h2>
+                  <h2 className="font-bold text-2xl ">{incomeList?.length}</h2>
+                </div>
+                <Wallet className="bg-violet-800/50 p-3 h-12 w-12 rounded-full" />
               </div>
             </CardSpotlight>
           </div>

@@ -72,7 +72,7 @@ function Dashboard() {
       .from(Budgets)
       .rightJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress.emailAddress))
-      .orderBy(desc(Expenses.id));
+      .orderBy(desc(Expenses.createdAt));
     setExpensesList(result);
   };
 

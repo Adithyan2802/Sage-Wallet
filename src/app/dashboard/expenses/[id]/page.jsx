@@ -61,7 +61,7 @@ function ExpensesScreen({ params }) {
       .select()
       .from(Expenses)
       .where(eq(Expenses.budgetId, params.id))
-      .orderBy(desc(Expenses.id));
+      .orderBy(desc(Expenses.createdAt));
     setExpensesList(result);
     console.log(result);
   };

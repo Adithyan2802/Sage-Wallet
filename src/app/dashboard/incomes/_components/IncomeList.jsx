@@ -9,24 +9,20 @@ import IncomeItem from "./IncomeItem";
 
 function IncomeList() {
   const [incomelist, setIncomelist] = useState([]);
+  const [totalIncome, setTotalIncome] = useState(0);
   const { user } = useUser();
   useEffect(() => {
     user && getIncomelist();
   }, [user]);
 
   const getIncomelist = async () => {
-    const result = await db
-      .select({
-        ...getTableColumns(Incomes),
-        totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
-        totalItem: sql`count(${Expenses.id})`.mapWith(Number),
-      })
-      .from(Incomes)
-      .leftJoin(Expenses, eq(Incomes.id, Expenses.budgetId))
-      .where(eq(Incomes.createdBy, user?.primaryEmailAddress?.emailAddress))
-      .groupBy(Incomes.id)
-      .orderBy(desc(Incomes.id));
+    let totalIncome_ = 0;
+    const result = await db.select().from(Incomes);
     setIncomelist(result);
+    result.forEach((element) => {
+      totalIncome_ += parseInt(element.amount);
+    });
+    setTotalIncome(totalIncome_);
   };
 
   return (
@@ -36,9 +32,14 @@ function IncomeList() {
         md:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         <CreateIncomes refreshData={() => getIncomelist()} />
+        {console.log("test" + totalIncome)}
         {incomelist?.length > 0
           ? incomelist.map((income, index) => (
-              <IncomeItem income={income} key={index} />
+              <IncomeItem
+                income={income}
+                totalIncome={totalIncome}
+                key={index}
+              />
             ))
           : [1, 2, 3, 4, 5].map((item, index) => (
               <div

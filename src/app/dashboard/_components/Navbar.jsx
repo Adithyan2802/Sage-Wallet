@@ -53,11 +53,12 @@ function Navbar() {
     // <div className="h-screen p-5 border-r-2 shadow-sm flex flex-col justify-between">
     <div className="w-screen p-5 z-10 flex justify-between">
       {/* Logo */}
-      <div className="flex flex-row items-center">
-        <Image src={"/logo.svg"} alt="logo" width={50} height={25} />
-        <span className="text-black-800 font-bold text-xl">Sage Wallet</span>
-      </div>
-
+      <Link href="/dashboard">
+        <div className="flex flex-row items-center">
+          <Image src={"/logo.svg"} alt="logo" width={50} height={25} />
+          <span className="text-black-800 font-bold text-xl">Sage Wallet</span>
+        </div>
+      </Link>
       {/* Menu */}
       <div className="lg:flex items-center hidden">
         {menu.map((menu, index) => (
