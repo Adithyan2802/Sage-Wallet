@@ -90,7 +90,7 @@ function ExpensesScreen({ params }) {
       <h2 className="text-2xl font-bold gap-2 flex justify-between items-center">
         <span className="flex gap-2 items-center">
           <ArrowLeft onClick={() => route.back()} className="cursor-pointer" />
-          My Expenses
+          Budget Details
         </span>
         <div className="flex gap-2 items-center">
           <EditBudget
