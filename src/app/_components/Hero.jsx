@@ -96,7 +96,7 @@ function Hero() {
               className="h-full w-full flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black relative rounded-xl"
             >
               <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-                Budget Insights
+                Budget Management
               </p>
               <AnimatePresence>
                 {hovered && (
@@ -133,7 +133,7 @@ function Hero() {
               className="h-full w-full flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black relative rounded-xl"
             >
               <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-                Expense Tracker
+                Income & Expense Tracker
               </p>
               <AnimatePresence>
                 {hovered && (
@@ -170,7 +170,7 @@ function Hero() {
               className="h-full w-full flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black  relative rounded-xl"
             >
               <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-                AI Assist
+                Financial Insights
               </p>
               <AnimatePresence>
                 {hovered && (
