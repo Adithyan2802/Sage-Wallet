@@ -35,7 +35,7 @@ function ExpenseListTable({ expensesList, refreshData }) {
             <Button
               onClick={() => deleteExpense(expenses)}
               variant="destructive"
-              className="items-center"
+              className="items-center max-sm:size-9/12"
             >
               Delete
               <Trash className="text-white ml-2" />
