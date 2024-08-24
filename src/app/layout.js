@@ -3,12 +3,16 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "./provider";
 import { dark } from "@clerk/themes";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Sage Wallet",
   description: "AI powered budget tracker",
+  icons: {
+    icon: "/favicon.ico", // /public path
+  },
 };
 
 export default function RootLayout({ children }) {
